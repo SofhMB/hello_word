@@ -1,0 +1,27 @@
+#!/bin/bash
+ora2pg -t TABLE -c ora2pg.conf.dist2
+cp output.sql table.sql
+ora2pg -t INSERT -c ora2pg.conf.dist2
+cp output.sql insert.sql
+ora2pg -t VIEW -c ora2pg.conf.dist2
+cp output.sql view.sql
+ora2pg -t SEQUENCE -c ora2pg.conf.dist2
+cp output.sql sequence.sql
+ora2pg -t PACKAGE -c ora2pg.conf.dist2
+cp output.sql package.sql
+ora2pg -t TRIGGER -c ora2pg.conf.dist2
+cp output.sql trigger.sql
+ora2pg -t FUNCTION -c ora2pg.conf.dist2
+cp output.sql function.sql
+ora2pg -t PROCEDURE -c ora2pg.conf.dist2
+cp output.sql procedure.sql
+gsutil cp table.sql gs://ora2pg-temp-bucket
+gsutil cp insert.sql gs://ora2pg-temp-bucket
+gsutil cp view.sql gs://ora2pg-temp-bucket
+gsutil cp sequence.sql gs://ora2pg-temp-bucket
+gsutil cp package.sql gs://ora2pg-temp-bucket
+gsutil cp trigger.sql gs://ora2pg-temp-bucket
+
+
+
+
